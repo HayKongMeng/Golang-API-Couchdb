@@ -1,0 +1,43 @@
+services:
+  couchdb-0:
+    restart: always
+    environment:
+      COUCHDB_USER: admin
+      COUCHDB_PASSWORD: 123
+      NODENAME: couchdb-0.local
+    image: couchdb:3
+    networks:
+      network:
+        aliases:
+          - couchdb-0.local
+    ports:
+      - "5985:5984"
+
+  couchdb-1:
+    restart: always
+    environment:
+      COUCHDB_USER: admin
+      COUCHDB_PASSWORD: 123
+      NODENAME: couchdb-1.local
+    image: couchdb:3
+    networks:
+      network:
+        aliases:
+          - couchdb-1.local
+    ports:
+      - "5986:5984"
+  couchdb-2:
+    restart: always
+    environment:
+      COUCHDB_USER: admin
+      COUCHDB_PASSWORD: 123
+      NODENAME: couchdb-2.local
+    image: couchdb:3
+    networks:
+      network:
+        aliases:
+          - couchdb-2.local
+    ports:
+      - "5987:5984"
+networks:
+  network:
